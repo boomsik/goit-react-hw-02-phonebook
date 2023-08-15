@@ -17,15 +17,11 @@ export default class App extends Component {
     filter: '',
   };
 
-  // Add contact
   handleAddContact = contact => {
     const { contacts } = this.state;
     const { name } = contact;
 
-    // Verify contact
     if (contacts.find(contact => contact.name === name)) {
-      // alert() було використано згідно ДЗ, крок 5.
-      // alert(`${name} is already in contacts`);
       Notify.failure(`${name} is already in contacts`);
       return;
     }
@@ -35,7 +31,6 @@ export default class App extends Component {
     });
   };
 
-  // Delete contact
   handleDeleteContact = id => {
     this.setState(prevState => {
       return {
@@ -44,7 +39,6 @@ export default class App extends Component {
     });
   };
 
-  // Add filter
   handleFilter = e => {
     this.setState({ filter: e.target.value });
   };
